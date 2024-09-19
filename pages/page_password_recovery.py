@@ -1,5 +1,5 @@
+import allure
 import pytest
-#
 from selenium.webdriver.common.by import By
 from pages.base_page import BasePage
 from constants import main_url, login_url, reset_password_url

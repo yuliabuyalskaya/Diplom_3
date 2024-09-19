@@ -2,6 +2,7 @@ from selenium import webdriver
 import pytest
 from pages.page_account import PageAccount
 from constants import main_url, account_url, history_orders_url, login_url
+import allure
 
 class TestAccount:
 

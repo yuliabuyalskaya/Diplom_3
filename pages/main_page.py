@@ -1,25 +1,26 @@
 from selenium.webdriver.common.by import By
 from pages.base_page import BasePage
 from constants import main_url, lenta_url
-import time
+import allure
+import pytest
 
 
 
 
 class MainPage(BasePage):
-    button_costructor = [By.XPATH, '/html/body/div/div/header/nav/ul/li[1]/a/p']
-    button_lenta = [By.XPATH, '/html/body/div/div/header/nav/ul/li[2]/a/p']
-    button_logo = [By.XPATH, '/html/body/div/div/header/nav/div/a/svg']
+    button_costructor = [By.CSS_SELECTOR, '.AppHeader_header__link_active__1IkJo > p:nth-child(2)']
+    button_lenta = [By.CSS_SELECTOR, 'li.undefined > a:nth-child(1) > p:nth-child(2)']
+    button_logo = [By.CSS_SELECTOR, '.active > svg:nth-child(1)']
     button_image_ingredient = [By.CLASS_NAME, 'BurgerIngredient_ingredient__image__3e-07']
     modal_ingredient = [By.CLASS_NAME, 'Modal_modal__contentBox__sCy8X']
     modal_text = [By.CLASS_NAME, 'Modal_modal__title__2L34m']
     button_modal_close = [By.CLASS_NAME, 'Modal_modal__close__TnseK']
     constructor_element = [By.CLASS_NAME, 'constructor-element__row']
     counter = [By.CLASS_NAME, 'counter_counter__ZNLkj']
-    button_personal_account = [By.XPATH, "/html/body/div/div/header/nav/a/p"]
+    button_personal_account = [By.CSS_SELECTOR, "a.AppHeader_header__link__3D_hX:nth-child(3) > p:nth-child(2)"]
     input_email = [By.NAME, 'name']
     input_password = [By.NAME, 'Пароль']
-    button_sign_in = [By.XPATH, '/html/body/div/div/main/div/form/button']
+    button_sign_in = [By.CSS_SELECTOR, '.button_button__33qZ0']
     button_order = [By.XPATH, '/html/body/div/div/main/section[2]/div/button']
     order_text = [By.CSS_SELECTOR, 'p.undefined:nth-child(1)']
 

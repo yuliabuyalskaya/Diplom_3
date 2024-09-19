@@ -2,6 +2,7 @@ from selenium import webdriver
 import pytest
 from pages.page_password_recovery import PagePasswordRecovery
 from constants import main_url, forgot_password_url, reset_password_url
+import allure
 
 class TestPasswordRecovery:
     def setup_method(self, method):
@@ -32,7 +33,7 @@ class TestPasswordRecovery:
         self.driver.get(main_url)
         client = PagePasswordRecovery(self.driver)
         result = client.check_focused_input_password_recovery()
-        assert result = true
+        assert result == True
 
 
 

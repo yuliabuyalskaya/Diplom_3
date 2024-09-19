@@ -1,6 +1,8 @@
 from selenium.webdriver.common.by import By
 from pages.base_page import BasePage
 from constants import main_url, history_orders_url, login_url
+import allure
+import pytest
 
 
 
