@@ -1,8 +1,7 @@
 import allure
-import pytest
 from selenium.webdriver.common.by import By
+from constants import reset_password_url
 from pages.base_page import BasePage
-from constants import main_url, login_url, reset_password_url
 
 
 class PagePasswordRecovery(BasePage):
@@ -47,8 +46,8 @@ class PagePasswordRecovery(BasePage):
         self.wait_url_change(reset_password_url)
         self.click(self.button_see_password)
         self.wait(self.is_active_input)
-        return true
+        return True
 
-        #надо доделать с подсветкой
+
 
 

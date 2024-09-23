@@ -1,8 +1,9 @@
-from selenium import webdriver
+
 import pytest
-from pages.page_password_recovery import PagePasswordRecovery
-from constants import main_url, forgot_password_url, reset_password_url
 import allure
+from constants import main_url, forgot_password_url, reset_password_url
+from pages.page_password_recovery import PagePasswordRecovery
+
 
 class TestPasswordRecovery:
     def setup_method(self, method):

@@ -1,8 +1,8 @@
-from selenium.webdriver.common.by import By
-from pages.base_page import BasePage
-from constants import main_url, history_orders_url, login_url
 import allure
-import pytest
+from selenium.webdriver.common.by import By
+from constants import main_url, history_orders_url, login_url
+from pages.base_page import BasePage
+
 
 
 
@@ -28,7 +28,10 @@ class PageAccount(BasePage):
         self.fill_input(self.input_password, '01200120')
         self.click_virt_mouse(self.button_sign_in)
         self.wait_url_change(main_url)
-        self.click_virt_mouse(self.button_personal_account)
+        try:
+            self.click_virt_mouse(self.button_personal_account)
+        except:
+            self.click_virt_mouse(self.button_personal_account)
 
 
 
@@ -43,9 +46,15 @@ class PageAccount(BasePage):
         self.fill_input(self.input_password, '01200120')
         self.click_virt_mouse(self.button_sign_in)
         self.wait_url_change(main_url)
-        self.click_virt_mouse(self.button_personal_account)
+        try:
+            self.click_virt_mouse(self.button_personal_account)
+        except:
+            self.click_virt_mouse(self.button_personal_account)
         self.wait(self.button_history_orders)
-        self.click_virt_mouse(self.button_history_orders)
+        try:
+            self.click_virt_mouse(self.button_history_orders)
+        except:
+            self.click_virt_mouse(self.button_history_orders)
         self.wait_url_change(history_orders_url)
 
 
@@ -62,9 +71,15 @@ class PageAccount(BasePage):
         self.fill_input(self.input_password, '01200120')
         self.click_virt_mouse(self.button_sign_in)
         self.wait_url_change(main_url)
-        self.click_virt_mouse(self.button_personal_account)
+        try:
+            self.click_virt_mouse(self.button_personal_account)
+        except:
+            self.click_virt_mouse(self.button_personal_account)
         self.click_virt_mouse(self.button_sign_out)
-        self.click_virt_mouse(self.button_personal_account)
+        try:
+            self.click_virt_mouse(self.button_personal_account)
+        except:
+            self.click_virt_mouse(self.button_personal_account)
         self.wait_url_change(login_url)
 
 

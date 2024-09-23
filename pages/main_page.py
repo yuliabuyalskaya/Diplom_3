@@ -1,16 +1,13 @@
-from selenium.webdriver.common.by import By
-from pages.base_page import BasePage
-from constants import main_url, lenta_url
 import allure
-import pytest
-
-
+from selenium.webdriver.common.by import By
+from constants import main_url, lenta_url
+from pages.base_page import BasePage
 
 
 class MainPage(BasePage):
-    button_costructor = [By.CSS_SELECTOR, '.AppHeader_header__link_active__1IkJo > p:nth-child(2)']
-    button_lenta = [By.CSS_SELECTOR, 'li.undefined > a:nth-child(1) > p:nth-child(2)']
-    button_logo = [By.CSS_SELECTOR, '.active > svg:nth-child(1)']
+    button_costructor = [By.CLASS_NAME, 'AppHeader_header__link__3D_hX']
+    button_lenta = [By.CLASS_NAME, 'undefined']
+    button_logo = [By.CLASS_NAME, 'AppHeader_header__logo__2D0X2']
     button_image_ingredient = [By.CLASS_NAME, 'BurgerIngredient_ingredient__image__3e-07']
     modal_ingredient = [By.CLASS_NAME, 'Modal_modal__contentBox__sCy8X']
     modal_text = [By.CLASS_NAME, 'Modal_modal__title__2L34m']
@@ -37,7 +34,10 @@ class MainPage(BasePage):
 
     @allure.step("Проверка кнопки ленты заказов")
     def check_button_lenta(self):
-        self.click_virt_mouse(self.button_lenta)
+        try:
+            self.click_virt_mouse(self.button_lenta)
+        except:
+            self.click_virt_mouse(self.button_lenta)
         self.wait_url_change(lenta_url)
 
 
@@ -45,6 +45,7 @@ class MainPage(BasePage):
 
     @allure.step("Проверка модального окна ингредиента")
     def check_button_ingredient_modal(self):
+        self.wait_visibility(self.button_image_ingredient)
         self.click_virt_mouse(self.button_image_ingredient)
         self.wait_visibility(self.modal_ingredient)
         return self.return_text(self.modal_text)
@@ -64,7 +65,8 @@ class MainPage(BasePage):
 
     @allure.step("Проверка каунтера ингредиентов")
     def check_drag_and_drop_ingredient_counter(self):
-        self.drag_and_drop(self.constructor_element, self.button_image_ingredient)
+        self.wait_visibility(self.button_image_ingredient)
+        self.drag_and_drop(self.button_image_ingredient, self.constructor_element)
         return self.return_text(self.counter)
 
 
@@ -80,6 +82,7 @@ class MainPage(BasePage):
         self.fill_input(self.input_password, '01200120')
         self.click_virt_mouse(self.button_sign_in)
         self.click_virt_mouse(self.button_order)
+        self.wait_visibility(self.order_text)
         return self.return_text(self.order_text)
 
 

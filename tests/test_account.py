@@ -1,8 +1,9 @@
-from selenium import webdriver
-import pytest
-from pages.page_account import PageAccount
-from constants import main_url, account_url, history_orders_url, login_url
 import allure
+import pytest
+from constants import main_url, account_url, history_orders_url, login_url
+from pages.page_account import PageAccount
+
+
 
 class TestAccount:
 

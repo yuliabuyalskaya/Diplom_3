@@ -1,8 +1,8 @@
-from selenium import webdriver
-from pages.main_page import MainPage
-from constants import main_url, account_url, history_orders_url, login_url, lenta_url
-import pytest
 import allure
+import pytest
+from constants import main_url, lenta_url
+from pages.main_page import MainPage
+
 
 
 class TestMainFunctions:
