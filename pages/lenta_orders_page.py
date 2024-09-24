@@ -67,27 +67,23 @@ class LentaPage(BasePage):
         self.fill_input(self.input_password, '01200120')
         self.click_virt_mouse(self.button_sign_in)
         try:
-            self.click(self.button_lenta)
-        except:
+            self.click_virt_mouse(self.button_lenta)
+        except TimeoutException:
             self.click_virt_mouse(self.button_lenta)
         self.wait_visibility(self.number_all_orders)
         number = self.return_text(self.number_all_orders)
-        try:
-            self.click(self.button_costructor)
-        except:
-            self.click_virt_mouse(self.button_costructor)
+        self.click(self.button_costructor)
+        self.click_virt_mouse(self.button_costructor)
         self.wait(self.button_image_ingredient)
         self.drag_and_drop(self.button_image_ingredient, self.constructor_element)
         self.click_virt_mouse(self.button_order)
         self.wait_visibility(self.button_modal_close)
-        try:
-            self.click(self.button_modal_close)
-        except:
-            self.click_virt_mouse(self.button_modal_close)
+        self.click(self.button_modal_close)
+        self.click_virt_mouse(self.button_modal_close)
         self.wait_visibility(self.button_lenta)
         try:
-            self.click(self.button_lenta)
-        except:
+            self.click_virt_mouse(self.button_lenta)
+        except TimeoutException:
             self.click_virt_mouse(self.button_lenta)
         self.wait_visibility(self.number_all_orders)
         number_with_my_order = self.return_text(self.number_all_orders)
@@ -109,27 +105,28 @@ class LentaPage(BasePage):
         self.fill_input(self.input_password, '01200120')
         self.click_virt_mouse(self.button_sign_in)
         try:
-            self.click(self.button_lenta)
-        except:
             self.click_virt_mouse(self.button_lenta)
+        except TimeoutException:
+            self.click_virt_mouse(self.button_lenta)
+        self.click_virt_mouse(self.button_lenta)
         self.wait_visibility(self.number_orders_today)
         number = self.return_text(self.number_orders_today)
         try:
-            self.click(self.button_costructor)
-        except:
+            self.click_virt_mouse(self.button_costructor)
+        except TimeoutException:
             self.click_virt_mouse(self.button_costructor)
         self.wait(self.button_image_ingredient)
         self.drag_and_drop(self.button_image_ingredient, self.constructor_element)
         self.click_virt_mouse(self.button_order)
         self.wait_visibility(self.button_modal_close)
         try:
-            self.click(self.button_modal_close)
-        except:
+            self.click_virt_mouse(self.button_modal_close)
+        except TimeoutException:
             self.click_virt_mouse(self.button_modal_close)
         self.wait_visibility(self.button_lenta)
         try:
-            self.click(self.button_lenta)
-        except:
+            self.click_virt_mouse(self.button_lenta)
+        except TimeoutException:
             self.click_virt_mouse(self.button_lenta)
         self.wait_visibility(self.number_orders_today)
         number_with_my_order = self.return_text(self.number_orders_today)
@@ -157,7 +154,7 @@ class LentaPage(BasePage):
         text = self.return_text(self.number_order)
         self.wait_visibility(self.button_modal_close)
         try:
-            self.click(self.button_modal_close)
+            self.click_virt_mouse(self.button_modal_close)
         except:
             self.click_virt_mouse(self.button_modal_close)
         self.wait_visibility(self.button_lenta)
